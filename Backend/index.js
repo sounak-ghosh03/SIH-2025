@@ -4,6 +4,15 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+// import userRoutes from "./routes/userRoutes.js";
+// import docRoutes from "./routes/docRoutes.js";
+import migrantRoutes from "./routes/migrantRoutes.js";
+import ehrRoutes from "./routes/ehrRoutes.js";
+import appointmentRoutes from "./routes/appointmentRoutes.js";
+import analyticsRoutes from "./routes/analyticsRoutes.js";
+import chatbotRoutes from "./routes/chatbotRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -14,5 +23,22 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
+// Root route
 app.get("/", (req, res) => res.send("API running"));
-app.listen(5000, () => console.log("Server started on port 5000"));
+
+// API routes
+app.use("/api/auth", authRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/docs", docRoutes);
+app.use("/api/migrants", migrantRoutes);
+app.use("/api/ehr", ehrRoutes);
+app.use("/api/appointments", appointmentRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api/chatbot", chatbotRoutes);
+app.use("/api/admin", adminRoutes);
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
