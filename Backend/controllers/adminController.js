@@ -7,31 +7,31 @@ export const getAllUsers = async (req, res) => {
         res.status(200).json({ success: true, users });
     } catch (error) {
         console.error("getAllUsers error:", error);
-        res.status(500).json({
-            success: false,
-            message: "Server error",
-            error: error.message,
-        });
+        res.status(500).json({ success: false, message: "Server error" });
     }
 };
 
-// Update user role or permissions
+// Update user role
 export const updateUserRole = async (req, res) => {
     try {
         const { id } = req.params;
         const { role } = req.body;
 
-        if (!role) {
-            return res
-                .status(400)
-                .json({ success: false, message: "Role is required" });
+        const validRoles = ["migrant", "doctor", "admin", "ngo"];
+        if (!role || !validRoles.includes(role)) {
+            return res.status(400).json({
+                success: false,
+                message:
+                    "Invalid or missing role. Allowed: " +
+                    validRoles.join(", "),
+            });
         }
 
         const user = await User.findByIdAndUpdate(
             id,
             { role },
-            { new: true, select: "-password" }
-        );
+            { new: true }
+        ).select("-password");
         if (!user) {
             return res
                 .status(404)
@@ -40,16 +40,12 @@ export const updateUserRole = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            user,
             message: "User role updated successfully",
+            user,
         });
     } catch (error) {
         console.error("updateUserRole error:", error);
-        res.status(500).json({
-            success: false,
-            message: "Server error",
-            error: error.message,
-        });
+        res.status(500).json({ success: false, message: "Server error" });
     }
 };
 
@@ -57,8 +53,8 @@ export const updateUserRole = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
-
         const user = await User.findByIdAndDelete(id);
+
         if (!user) {
             return res
                 .status(404)
@@ -67,14 +63,10 @@ export const deleteUser = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: "User deleted successfully",
+            message: `User (${user.email}) deleted successfully`,
         });
     } catch (error) {
         console.error("deleteUser error:", error);
-        res.status(500).json({
-            success: false,
-            message: "Server error",
-            error: error.message,
-        });
+        res.status(500).json({ success: false, message: "Server error" });
     }
 };
