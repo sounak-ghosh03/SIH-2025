@@ -5,8 +5,6 @@ import morgan from "morgan";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
-// import userRoutes from "./routes/userRoutes.js";
-// import docRoutes from "./routes/docRoutes.js";
 import migrantRoutes from "./routes/migrantRoutes.js";
 import ehrRoutes from "./routes/ehrRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
@@ -28,8 +26,6 @@ app.get("/", (req, res) => res.send("API running"));
 
 // API routes
 app.use("/api/auth", authRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/docs", docRoutes);
 app.use("/api/migrants", migrantRoutes);
 app.use("/api/ehr", ehrRoutes);
 app.use("/api/appointments", appointmentRoutes);

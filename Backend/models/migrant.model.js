@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// 🧾 Migrant Schema: Stores demographic & employer details + QR UID
+
 const migrantSchema = new mongoose.Schema(
     {
         migrant_uid: {

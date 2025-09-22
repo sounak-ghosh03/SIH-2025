@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-
-// 🧾 EHR Schema: Stores migrant health history & documents
 const ehrRecordSchema = new mongoose.Schema(
     {
         migrant: {
