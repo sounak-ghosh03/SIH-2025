@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "migrant": "Migrant Services",
+    "ehr": "Health Records",
+    "scan": "Scan QR"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "loginButton": "Sign In",
+    "registerButton": "Sign Up",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "loginError": "Invalid email or password"
+  },
+  "migrant": {
+    "registration": "Migrant Registration",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "address": "Address",
+    "aadhar": "Aadhar Number",
+    "passport": "Passport Number",
+    "emergency": "Emergency Contact",
+    "register": "Register",
+    "generateQR": "Generate QR Code",
+    "scanQR": "Scan QR Code",
+    "qrGenerated": "QR Code Generated Successfully"
+  },
+  "ehr": {
+    "title": "Electronic Health Records",
+    "addRecord": "Add New Record",
+    "patientName": "Patient Name",
+    "condition": "Medical Condition",
+    "medication": "Medication",
+    "date": "Date",
+    "doctor": "Doctor",
+    "save": "Save Record",
+    "records": "Health Records"
+  },
+  "dashboard": {
+    "welcome": "Welcome to Digital Health Passport",
+    "totalMigrants": "Total Migrants",
+    "activeCases": "Active Cases",
+    "healthCenters": "Health Centers",
+    "recentActivity": "Recent Activity"
+  }
+}

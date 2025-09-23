@@ -1,7 +1,36 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import svgrPlugin from 'vite-plugin-svgr'
 
-// https://vite.dev/config/
+// __define-ocg__: Vite config with React, React Refresh & SVGR
 export default defineConfig({
-  plugins: [react()],
+  build: {
+    outDir: 'build', // output directory
+    sourcemap: true,
+  },
+  plugins: [
+    react(), // enables Fast Refresh with the new React plugin
+    svgrPlugin({
+      svgrOptions: {
+        icon: true,
+      },
+    }), // import SVGs as React components
+  ],
+  server: {
+    port: 3000,
+    host: true, // allows access from external IPs
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /src\/.*\.[jt]sx?$/,
+    exclude: [],
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
 })
