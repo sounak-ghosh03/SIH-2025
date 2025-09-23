@@ -15,7 +15,7 @@ import Heatmap from './components/Dashboard/Heatmap';
 import DiseaseTrendsChart from './components/Dashboard/DiseaseTrendsChart';
 import AlertsList from './components/Dashboard/AlertsList';
 import BookingCalendar from './components/Appointments/BookingCalendar';
-import EnhancedChatUI from './components/Chatbot/EnhancedChatUI';
+// import EnhancedChatUI from './components/Chatbot/EnhancedChatUI';
 import HomePage from './pages/index';
 import Login from './components/Dashboard/login';
 import Register from './components/Dashboard/register';
@@ -26,6 +26,7 @@ import Footer from './Footer';
 import About from './About';
 import Contact from './Contact';
 import PrivacyPolicy from './Privacy';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -51,13 +52,14 @@ function App() {
               <Route path="/trends" element={<DiseaseTrendsChart />} />
               <Route path="/alerts" element={<AlertsList />} />
               <Route path="/appointments" element={<BookingCalendar />} />
+              <Route path="/chatbot" element={<Chatbot />} />
               <Route path="/admin/audit" element={<Audit />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
             </Routes>
           </Container>
-          <EnhancedChatUI />
+          {/* <EnhancedChatUI /> */}
           <Footer/>
         </div>
       </Router>

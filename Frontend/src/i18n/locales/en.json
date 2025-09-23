@@ -9,7 +9,11 @@
     "ehr": "Health Records",
     "scan": "Scan QR",
     "language": "Language",
-    "profile": "Profile"
+    "profile": "Profile",
+    "settings": "Settings",
+    "help": "Help",
+    "support": "Support",
+    "about": "About"
   },
   "auth": {
     "login": "Login",
